@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="code-container">
+    <h1>Budget App</h1>
+    
+    <form id="budget-form">
+        <label for="income">Income:</label>
+        <input type="number" id="income" required><br><br>
+        
+        <label for="expenses">Expenses:</label>
+        <input type="number" id="expenses" required><br><br>
+        
+        <input type="submit" value="Calculate Budget">
+    </form>
+    
+    <div id="result"></div>
+    
+    <script>
+        document.querySelector('#budget-form').addEventListener('submit', calculateBudget);
+        
+        function calculateBudget(event) {
+            event.preventDefault();
+            
+            var income = parseInt(document.querySelector('#income').value);
+            var expenses = parseInt(document.querySelector('#expenses').value);
+            
+            var remainingBudget = income - expenses;
+            
+            document.querySelector('#result').innerHTML = "Remaining Budget: $" + remainingBudget;
+        }
+    </script>
+    </div>
+</body>
+</html>
